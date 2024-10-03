@@ -54,7 +54,7 @@ The mBot is able to move in a straight line as it constantly adjusts its movemen
 
 The ultrasonic sensor detects the distance between the sensor and the wall on its right, by measuring the time taken for an emitted ultrasonic pulse to bounce off the wall, back to the sensor. The following formula was used to calculate the distance:
 
-distance (cm) =  (0.0345 (cm/μs) × time taken (μs))/2  
+_distance_ (cm) =  (0.0345 (cm/μs) × _time taken_ (μs))/2  
 
 where 0.0345 cm/μs is the speed of sound measured at 23℃.
 
@@ -159,36 +159,37 @@ _Figure 12: Circuit diagram for the colour sensing circuit_
 
 #### 2.4.4 | Colour Detection Algorithm
 
- 
+![image](https://github.com/user-attachments/assets/ddba6f29-0ac5-4111-9c2e-2432e9c71057)
 
 _Figure 13. Flowchart for colour sensing algorithm_
 
 When the colour detection function is triggered, the code enters a while loop that runs until a valid colour is found. The mBot will only take a maximum of 2 readings in order to save time; the second reading is taken in case the first reading is an outlier. Once a reading of the R, G, B values is taken, they are compared against the ideal values for every colour square within a certain error margin. After the second reading is taken, the margin of error is increased with every iteration such that the code will eventually determine the colour that matches the closest with the measured values. Once a valid colour is found, the mBot will execute the command that corresponds to that colour.
 
- 
 #### 2.4.5 | Colour Decision Calibration
 
 The ideal RGB values for each colour, which were taken from the coloured sheets from the final maze area, are given below:
 
-Colour/RGB	RED (R)	GREEN (G)	BLUE (B)	RGB Code Colour
-Red	225	57	42	
-Orange	249	116	54	
-Green	53	112	59	
-Blue	70	166	223	
-Purple	107	107	150	
-White	251	255	255	
+| Colour/RGB |	RED (R)	| GREEN (G)	| BLUE (B)	|
+| ---------- | ------- | --------- | -------- |
+| Red	| 225	| 57	| 42	|
+| Orange |	249	| 116 |	54	|
+| Green	| 53 |	112	| 59	|
+| Blue	| 70	| 166	| 223	|
+| Purple	| 107	| 107	| 150	|
+| White	| 251	| 255	| 255	|
 
-                 Figure 14. RGB values detected by colour sensor for each coloured sheet
+_Figure 14. RGB values detected by colour sensor for each coloured sheet_
 
 The raw R, G and B values that are measured by the LDR are first processed by accounting for colour balance, using the formula
-processed value = 255 ×  (raw value - value for black)/(grey diff) 
+_processed value_ = 255 × (_raw value - value for black_)/(_grey diff_) 
 
-where the grey diff of a colour is defined as the (value for white – value for black) for that colour. The values of grey diff and value for black for each colour are shown below, based on the values the LDR read for pure black and pure white under lighting conditions of the final maze.
+where the _grey diff_ of a colour is defined as the (_value for white – value for black_) for that colour. The values of _grey diff_ and _value for black_ for each colour are shown below, based on the values the LDR read for pure black and pure white under lighting conditions of the final maze.
 
-Colour/RGB Values	RED (R)	GREEN (G)	BLUE (B)
-Value for white	223	287	218
-Value for black	85	114	97
-Grey diff	138	173	121
+| Colour/RGB Values	| RED (R)	| GREEN (G)	| BLUE (B) |
+| ----------------- | ------- | --------- | -------- |
+| Value for white |	223	| 287	| 218 |
+| Value for black |	85	| 114	| 97 |
+| Grey diff	| 138	| 173	| 121 |
 
 _Figure 15. RGB values detected by colour sensor for pure white, pure black, and grey diff_
 
@@ -199,7 +200,7 @@ Each note was defined as its frequency in Hertz (e.g., A4 as 440Hz), and each no
 
 The entire chorus of Rick Astley’s “Never Gonna Give You Up” was then transcribed into our code, to be used as our celebratory tone. 
 
- 
+
 
 _Figure 16. Diagram showing musical notes and their corresponding frequencies in Hz_
 
