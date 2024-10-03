@@ -24,7 +24,7 @@ _Figure 2. Colour interpretation for the colour sensing challenge_
 
 ## 2 | Implementation Details and Calibration of the Various Subsystems 
 
-## 2.1. Motion
+### 2.1 | Motion
 
 To code the turning motions of the mBot, values provided in _mBot introduction.pdf_ were used initially. However, it was discovered through preliminary testing that these values were not suitable for all the mazes, due to variation in the maze surfaces (see _3.2 | Variation in Maze Surfaces_). Hence, different values for turning delays and motor speeds were experimented with, and the final values used are: a delay value of 340 milliseconds per 90° turn, and a motor speed of 220. 
 
@@ -45,4 +45,39 @@ The following motion-related functions were defined in the code:
 
 
 _Figure 3. Table illustrating each motion-related function, their related colour, and purpose_
+
+### 2.2 | Moving in a Straight Line
+
+The mBot is able to move in a straight line as it constantly adjusts its movement by nudging left or right  based on the distance measured using the ultrasonic sensor, and the reading obtained from the IR sensor. The specifics of the IR sensor, ultrasonic sensor, and nudging algorithm are mentioned below. 
+
+#### 2.2.1 | Ultrasonic Sensor
+
+The ultrasonic sensor detects the distance between the sensor and the wall on its right, by measuring the time taken for an emitted ultrasonic pulse to bounce off the wall, back to the sensor. The following formula was used to calculate the distance:
+
+distance (cm) =  (0.0345 (cm/μs) × time taken (μs))/2  
+
+where 0.0345 cm/μs is the speed of sound measured at 23℃.
+
+#### 2.2.2 | IR Sensor
+
+##### 2.2.2.1 | Explanation of Components
+
+The IR emitter and IR detector are placed side by side on the mBot breadboard circuit, facing the left wall (see _Figure 4_). The emitted IR light is reflected by the left wall, and the distance to the left wall affects the amount of IR light detected. The IR detector’s output voltage decreases as the distance from the wall also reduces.
+
+![image](https://github.com/user-attachments/assets/cb164052-ec18-4977-8860-523beb81464c)
+
+_Figure 4. Diagram illustrating the positions of the IR emitter, IR detector, and left wall_
+
+##### 2.2.2.2 | Circuit Design
+
+![image](https://github.com/user-attachments/assets/7cbe62de-7fd3-405e-957c-959445ae9e23)
+
+_Figure 5. Circuit diagram of IR sensor_
+
+The IR sensor (Vout) terminal is connected to an individual analog pin (A1) on the Arduino to measure the voltage drop across the detector. 
+
+The circuit with the IR detector is wired directly to the 5V pin of the Arduino, so that the IR detector is always turned on and is detecting IR light. 
+
+The circuit with the IR emitter is wired to the output pin of the L293D motor driver. This allows the IR emitter to be switched on and off by toggling the input pin of the motor driver between high and low voltages. The goal of this circuit configuration is for the IR detector to be able to detect both the ambient IR reading (when the IR emitter is turned on), and the wall IR reading (when the IR emitter is turned off). The difference between the ambient IR reading and the wall IR reading is used for the nudging algorithm, to determine the mBot’s position relative to wall (see _2.2.3.2 | getIRDetectorReading()_).
+
 
