@@ -193,19 +193,16 @@ where the _grey diff_ of a colour is defined as the (_value for white – value 
 
 _Figure 15. RGB values detected by colour sensor for pure white, pure black, and grey diff_
 
- 
 ### 2.5 | Celebratory Tone
 
 Each note was defined as its frequency in Hertz (e.g., A4 as 440Hz), and each note duration as its duration in milliseconds (e.g., a semiquaver as 125) in the code, as the buzzer.tone() function takes in two parameters; the note frequency in Hz, and the duration in milliseconds.  
 
 The entire chorus of Rick Astley’s “Never Gonna Give You Up” was then transcribed into our code, to be used as our celebratory tone. 
 
-
+![image](https://github.com/user-attachments/assets/46fb610f-82b3-49b5-9f9b-ea0dcbb5d13f)
 
 _Figure 16. Diagram showing musical notes and their corresponding frequencies in Hz_
 
-
- 
 ## 3 | Difficulties Faced and How They were Overcome
 
 ### 3.1 | Lighting Conditions
@@ -220,61 +217,7 @@ The friction between the wheels and the table surface varied between the mazes. 
 
 The LDR is rather sensitive with respect to its position, and the mBot’s collisions with the walls would jar it, which affected the amount of light of each colour it received. To counter these offsets, we secured it in place using a mounting putty so that our readings became more accurate.
 
-
 ### 3.4 | Debugging Colour Read by Colour Sensor
 
-To better debug what colour the mBot sensed, we used the LED display to showcase the colour detected by the LDR, to determine the colour being sensed. Since we shielded the robot very well, it was not possible to see when the mBot was reading colour and when it was not. To overcome this we used the built-in LED display to show a light pink colour whenever the colour was being read. This made it easy for us to know how many checks it took for the colour sensor to detect the colour. 
-
-## 4 | Pictures of the mBot
-
-### 4.1 | Top and Bottom Views
-
-         
-
-Figure 17. Top view of mBot                               Figure 18. Bottom view of mBot
-
-
- 
-### 4.2 | Front and Back Views
-
-  
-
-Figure 19. Front view of mBot                              Figure 20. Back view of mBot
-
-### 4.3 | Side Views
-
-  
-
-Figure 21. Left side view of mBot                        Figure 22. Right side view of mBot
- 
-## 5 | Pictures of Sensor Breadboard Circuits
-
-### 5.1 | Colour Sensor
-
-  
-
-Figure 23. Shielded colour sensor circuit               Figure 24. Exposed colour sensor circuit
-     with mounting putty on LDR for stability
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 5.2 | Picture of the IR sensor circuit
-
- 
-
-                 Figure 25. IR sensor circuit
-
-
+To better debug what colour the mBot sensed, we used the LED display to showcase the colour detected by the LDR, to determine the colour being sensed. Since we shielded the robot very well, it was not possible to see when the mBot was reading colour and when it was not. To overcome this we used the built-in LED display to show a light pink colour whenever the colour was being read. This made it easy for us to know how many checks it took for the colour sensor to detect the colour.
 
